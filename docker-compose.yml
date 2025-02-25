@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  fastapi-app:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+    environment:
+      - DB_USER=root
+      - DB_PASSWORD=yourpassword
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_NAME=fastapi_board
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword
+      MYSQL_DATABASE: fastapi_board
+      MYSQL_USER: fastapi_user
+      MYSQL_PASSWORD: fastapi_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+volumes:
+  mysql_data:
+
+networks:
+  app-network:

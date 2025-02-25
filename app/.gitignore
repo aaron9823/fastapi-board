@@ -1,0 +1,17 @@
+# Python-related files
+__pycache__/  # Compiled Python files directory
+*.pyc  # Compiled Python bytecode files
+*.pyo  # Compiled Python optimized bytecode files
+*.pyd  # Compiled Python extension modules
+venv/  # Virtual environment directory
+env/  # Alternative virtual environment directory
+
+# Environment variable files (e.g., database credentials)
+.env  # Environment configuration file
+
+# VSCode-related files
+.vscode/ 
+
+# Docker-related files
+*.log 
+docker-compose.override.yml 

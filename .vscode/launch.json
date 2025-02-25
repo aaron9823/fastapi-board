@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: FastAPI (uvicorn)",
+        "type": "python",
+        "request": "launch",
+        "program": "uvicorn",  // 시스템에 설치된 uvicorn을 사용
+        "args": [
+          "app.main:app",  // FastAPI 앱 객체 경로
+          "--reload",  // 코드 변경 시 자동 서버 재시작
+          "--debug"  // 디버깅 정보 활성화
+        ],
+        "env": {
+          "PYTHONPATH": "${workspaceFolder}/app"  // 앱 경로
+        },
+        "jinja": true
+      }
+    ]
+  }
+  
